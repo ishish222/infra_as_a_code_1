@@ -18,7 +18,7 @@ Resources:
       VpcId: 
         Ref: 'MyVPC'
       CidrBlock: '10.0.1.0/24'
-      AvailabilityZone: 'us-east-1a'
+      AvailabilityZone: 'eu-central-1
       MapPublicIpOnLaunch: true
       Tags:
         - Key: 'Name'
