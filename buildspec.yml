@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Installing AWS CLI
+      - curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - unzip awscliv2.zip
+      - sudo ./aws/install
+  build:
+    commands:
+      - echo Packaging CloudFormation Template
+      - aws cloudformation package --template-file template.yml --s3-bucket iaac-s3 --output-template-file outputtemplate.yml
+  post_build:
+    commands:
+      - echo Deploying CloudFormation Stack
+      - aws cloudformation deploy --template-file outputtemplate.yml --stack-name IaaC-1-stack --capabilities CAPABILITY_IAM
