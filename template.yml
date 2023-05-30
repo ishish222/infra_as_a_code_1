@@ -15,10 +15,10 @@ Resources:
   MySubnet:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      VpcId: 
+      VpcId:
         Ref: 'MyVPC'
       CidrBlock: '10.0.1.0/24'
-      AvailabilityZone: 'eu-central-1
+      AvailabilityZone: 'eu-central-1a'
       MapPublicIpOnLaunch: true
       Tags:
         - Key: 'Name'
